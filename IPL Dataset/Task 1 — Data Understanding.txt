@@ -1,0 +1,180 @@
+Task 1 — Data Understanding
+
+Load the CSV using Pandas.
+df=pd.read_csv("file_name);
+
+Display the first 10 rows.
+df.head(10)
+
+Find the number of rows and columns.
+df.count("columns")
+
+Display all column names.
+df.columns
+
+Check the data types.
+df.info()
+
+Generate summary statistics.
+df.describe()
+
+Find the number of unique teams.
+df["team"].unique()
+
+Find the number of unique venues.
+df["team"].nunique()
+
+Task 2 — Data Cleaning
+
+Find the number of missing values in each column.
+df.isnull().sum()
+
+Find duplicate records.
+df.deplicated().sum()
+
+Check whether match_number contains NaN.
+df["match_number"].isnull()
+
+Check whether date has the correct datatype.
+df["date"].info()
+
+Convert the date column to datetime.
+df["date"].astype("datetime64")
+
+Handle missing values appropriately.
+
+Check whether team names have inconsistent spelling.
+
+Task 3 — Match Analysis
+
+How many matches were played in each season?
+df.groupby("season")["match_number"].count().sort_values(ascending=True)
+
+Which season had the highest number of matches?
+df.groupby("season")["match_number"].count().sort_values(ascending=True).head(1)
+
+Which team played the most matches?
+team_matches = pd.concat([df["team1"], df["team2"]]).value_counts()
+most_matches = team_matches.idxmax()
+matches = team_matches.max()
+
+print("Team:", most_matches)
+print("Matches:", matches)
+
+Which team won the most matches?
+df.groupby("winner")["winner"].count().sort_values(ascending=False).head(10)
+
+
+What is the overall winning percentage of each team?
+
+Which team has the highest win percentage?
+
+Which venue hosted the most matches?
+df.groupby("venue")["match_number").count().sort_values(ascending=False).head(1)
+
+Task 4 — Toss Analysis
+
+Which team won the most tosses?
+df.group by("toss_winner")["toss_winner"].count().sort_values(ascending=false).head(1)
+
+How many times did the toss winner also win the match?
+Calculate:
+
+Toss-to-match win percentage
+
+Does winning the toss appear to give a team an advantage?
+Task 5 — Player Analysis
+Find the top 10 Player of the Match winners.
+Which player received the most Player of the Match awards?
+Which season had the most different Player of the Match winners?
+Find players who received Player of the Match awards more than 5 times.
+Task 6 — Venue Analysis
+Find the top 10 venues by number of matches.
+Which venue hosted the most matches?
+Which teams won the most matches at each venue?
+Find the venue with the highest winning percentage for a particular team.
+Task 7 — Time Analysis
+
+Extract:
+
+df["year"] = df["date"].dt.year
+df["month"] = df["date"].dt.month
+
+Then answer:
+
+Number of matches per year.
+Matches per month.
+Which month had the most IPL matches?
+Compare the number of matches across seasons.
+📊 Task 8 — Visualization
+
+Create these charts using Matplotlib:
+
+1. Matches per Season
+
+Bar chart.
+
+2. Team Wins
+
+Horizontal bar chart.
+
+3. Top 10 Players of the Match
+
+Bar chart.
+
+4. Matches by Venue
+
+Bar chart.
+
+5. Toss Winner vs Match Winner
+
+Pie or bar chart.
+
+6. Matches Over Time
+
+Line chart.
+
+🔥 Task 9 — Business Questions
+
+Pretend you are a Data Analyst working for an IPL team.
+
+Answer:
+
+Which team has performed consistently well?
+Which team has the strongest toss-to-match conversion?
+Which venue is most successful for each team?
+Which players have the biggest match impact?
+Which seasons had the highest competition?
+Which team should be considered the strongest based on historical performance?
+Does winning the toss significantly improve the chance of winning?
+Which venue should a team prefer based on its historical performance?
+⭐ Final Dashboard KPIs
+
+Create these KPIs:
+
+Total Matches
+Total Seasons
+Total Teams
+Total Venues
+Most Successful Team
+Most Successful Player
+Most Used Venue
+Toss → Match Win %
+Your final project flow
+CSV
+ ↓
+Data Understanding
+ ↓
+Data Cleaning
+ ↓
+Exploratory Data Analysis
+ ↓
+Statistical Analysis
+ ↓
+Visualization
+ ↓
+Business Insights
+ ↓
+IPL Dashboard
+
+Start with Tasks 1–3 first. Don't look for solutions immediately—try writing the Pandas code yourself. Then send me your code/output, and I'll review it like a real data-analysis assignment.
